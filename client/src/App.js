@@ -5,6 +5,8 @@ import {
   upDateBook,
   deleteBook,
 } from "./components/bookServices";
+import AddBook from "./components/AddBook";
+import BookList from "./components/BookList";
 
 
 export default function Book() {
@@ -83,45 +85,19 @@ export default function Book() {
 
   return (
     <div className="collectionList">
-      <header>
-        <h1>My library</h1>
-      </header>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          name="title"
-          value={currentBook.title} 
-          onChange={handleChange} 
-          placeholder="title"
-        />
-        <input 
-          type="text" 
-          name="author"
-          value={currentBook.author} 
-          onChange={handleChange} 
-          placeholder="author"
-        />
-        <input 
-          type="submit" 
-          value="add" 
-          onClick={handleSubmit}
-        />
-      </form>
-      <div className="list">
-          {books.map((book) => (
-            <div key={book._id}  className="list-item">
-              <div className="book-info">
-                <span className="title">{book.title}</span>
-                <span className="author">{book.author}</span>
-              </div>
-              <input 
-                type="submit" 
-                value="delete" 
-                onClick={() => handleDelete(book._id)}
-                className="delete-btn"
-              />
-            </div>
-          ))}
+      <h1>My library</h1>
+      <div>
+        <div>
+          <AddBook 
+            currentBook={currentBook}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+          />
+          <BookList 
+            books={books}
+            handleDelete={handleDelete}
+          />
+        </div>
       </div>
     </div>
   )
