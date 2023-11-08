@@ -1,92 +1,44 @@
-* {
-  box-sizing: border-box;
-}
-
 html {
   background-color: #f5f5f5;
 }
 
-header {
-  margin: 20px;
-}
-
 body {
   font-family: sans-serif;
-  margin-top: 20px;
+  margin-top: 50px;
   padding: 0;
 }
 
+.collection-list {
+  display: grid;
+  place-items: center;
+
+  background-color: white;
+  margin-inline: 1%;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow:2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
-  margin-top: 0;
   font-size: 22px;
   color: #383838;
 }
 
-code {
-  font-size: 1.2em;
-}
-
-.collectionList {
-  margin-inline: 10%;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1) ;
-  -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1) ;
-  box-shadow:2px 2px 4px rgba(0, 0, 0, 0.1) ;
-}
-
-.list-item {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
-  font: 14px/1.6 'arial narrow', sans-serif;
-  list-style: none;
-  align-items: center;
-}
-
-.title,
-.author {
-  flex: 1;
-  margin-right: 8px;
-  margin-left: 8px;
-  position: relative;
-  padding: 7px 5px 7px 10px;
-  margin-bottom:5px;
-  font-weight: bold;
-  -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1) ;
-  -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1) ;
-  box-shadow:1px 1px 2px rgba(0, 0, 0, 0.1) ;
-  color: #383838;
-  border: solid 1px #f1f1f1;
-}
-
-.title {
-  width: 500px;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.author {
-  width: 150px;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.book-info {
-  text-align: center;
+form {
+  display: grid;
+  grid-template-columns: 6fr 4fr 0.5fr;
+  grid-auto-flow: column;
 }
 
 input[type="text"] {
   border: none;
   outline: none;
   border-bottom: solid 1px #666;
-  margin: 5px;
+  margin-right: 5px;
+  padding: 0;
 }
 
 input[type="text"]:focus {
@@ -103,8 +55,26 @@ input[type="submit"] {
   width: 55px;
 }
 
-input[type="submit"]:hover {
+.delete-btn:hover {
   box-shadow: none;
   background: #ff2222;
   color: #f7f7f7;
+}
+
+.add-btn:hover {
+  box-shadow: none;
+  background: #30e620;
+  color: #f7f7f7;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 15fr 1fr;
+
+  margin: 10px 0;
+}
+
+.book-info {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
 }

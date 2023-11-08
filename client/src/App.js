@@ -40,7 +40,8 @@ export default function Book() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const originalBooks = [...books];
-    try {
+    if(currentBook.title.trim() !== '' && currentBook.author.trim() !== ''){
+      try {
         const { data } = await addBook({ 
           title: currentBook.title,
           author: currentBook.author,
@@ -51,9 +52,13 @@ export default function Book() {
           title: '',
           author: '',
         });
-    } catch (error) {
+      } catch (error) {
         console.log(error);
+      }
+    } else {
+      console.log('データが入力されていません');
     }
+    
   }
 
   const handleUpdate = async (currentBookId) => {
@@ -75,7 +80,7 @@ export default function Book() {
     const originalBooks = [...books];
     try {
         await deleteBook(currentBookId);
-        const updatedBooks = originalBooks.filter(book => book.id !== currentBookId);
+        const updatedBooks = originalBooks.filter(book => book._id !== currentBookId);
         setBooks(updatedBooks);
     } catch (error) {
         setBooks(originalBooks);
@@ -84,20 +89,18 @@ export default function Book() {
   }
 
   return (
-    <div className="collectionList">
+    <div className="collection-list">
       <h1>My library</h1>
       <div>
-        <div>
-          <AddBook 
-            currentBook={currentBook}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-          />
-          <BookList 
-            books={books}
-            handleDelete={handleDelete}
-          />
-        </div>
+        <AddBook 
+          currentBook={currentBook}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+        <BookList 
+          books={books}
+          handleDelete={handleDelete}
+        />
       </div>
     </div>
   )

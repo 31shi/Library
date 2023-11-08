@@ -22,6 +22,7 @@ export default function AddBook ({ currentBook, handleChange, handleSubmit }) {
                     type="submit" 
                     value="add" 
                     onClick={handleSubmit}
+                    className="add-btn"
                 />
             </form>
         </div>
